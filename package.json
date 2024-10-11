@@ -12,5 +12,11 @@
     },
     "keywords": [],
     "author": "Batchuka",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "jstrobot": "file:"
+    },
+    "bin": {
+        "jstrobot": "./cli/main.js"
+    }
 }

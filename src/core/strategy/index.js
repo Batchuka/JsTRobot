@@ -1,18 +1,7 @@
-// src/core/strategy/index.js
-
-class Strategy {
-    execute() {
-        throw new Error('execute() must be implemented');
-    }
-}
-
-class ConcreteStrategyA extends Strategy {
-    execute() {
-        console.log('Executing Strategy A');
-    }
-}
+const BaseRegistry = require('./base_registry');
+const ApplicationStrategy = require('./application_strategy');
 
 module.exports = {
-    Strategy,
-    ConcreteStrategyA,
+    BaseRegistry,
+    ApplicationStrategy,
 };

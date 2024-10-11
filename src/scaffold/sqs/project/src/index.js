@@ -1,9 +1,9 @@
 // index.js
-const HungryState = require('./src/hungryState');
+const HungryState = require('./hungryState');
 const OrderState = require('./src/orderState');
-const EatingState = require('./src/eatingState');
+const EatingState = require('./eatingState');
 const SatisfiedState = require('./src/satisfiedState');
-const DeadState = require('./src/deadState');
+const DeadState = require('./deadState');
 
 module.exports = {
     HungryState,

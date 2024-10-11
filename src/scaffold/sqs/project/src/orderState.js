@@ -1,5 +1,5 @@
 // src\scaffold\state\project\src\orderState.js
-const Pizzeria = require('./pizzeria');
+const Pizzeria = require('../pizzeria');
 
 class OrderState {
     onEntry() {

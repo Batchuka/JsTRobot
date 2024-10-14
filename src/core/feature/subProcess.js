@@ -1,7 +1,7 @@
-// src\core\feature\subProcess.js
-const { exec } = require('child_process');
-const { createLogger, transports } = require('winston');
-const logger = createLogger({ transports: [new transports.Console()] });
+// src/core/feature/subProcess.js
+import { exec } from 'child_process';
+import { createLogger, transports } from 'winston'; // Ajustado para import
+const logger = createLogger({ transports: [new transports.Console()] }); // Correção da sintaxe aqui
 
 class SubprocessManager {
     constructor() {
@@ -32,4 +32,4 @@ class SubprocessManager {
     }
 }
 
-module.exports = new SubprocessManager();
+export default new SubprocessManager(); // Ajustado para export como default

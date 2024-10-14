@@ -1,7 +1,7 @@
 // core/decorator/config.js
-const ConfigManager = require('../feature/configManager');
+import ConfigManager from '../feature/configManager';
 
-function Config(configKey, defaultValue = null) {
+export function Config(configKey, defaultValue = null) {
     /**
      * Função decoradora para injetar um valor de configuração na função decorada.
      * 

@@ -1,17 +1,15 @@
 // src\scaffold\sqs\project\main.js
-const path = require('path');
+import path from 'path';
+import { entrypoint } from 'jstrobot/src/core/main.js';
 
 function main() {
-    // Importa o JsTRobot como framework instalado
-    const entrypoint = require('JsTRobot').entrypoint;
-
     // Define o diretório atual como argumento para o entrypoint
-    process.argv = [path.resolve(__dirname)];
+    process.argv = [path.resolve(import.meta.url)];
 
     // Invoca o entrypoint do JsTRobot
     entrypoint();
 }
 
-if (require.main === module) {
+if (import.meta.url === new URL(import.meta.url).href) {
     main();
 }

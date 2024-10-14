@@ -1,7 +1,7 @@
 // core/decorator/subprocess.js
-const SubprocessManager = require('../feature/subprocessManager');
+import SubprocessManager from '../feature/subprocessManager';
 
-function Subprocess(command, captureOutput = true, captureError = true) {
+export function Subprocess(command, captureOutput = true, captureError = true) {
     /**
      * Função para acessar o SubprocessManager diretamente e executar um subprocesso.
      * 

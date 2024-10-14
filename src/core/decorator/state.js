@@ -1,7 +1,7 @@
 // src\core\decorator\state.js
-const StateRegistry = require('../strategy/state/stateRegistry');
+import StateRegistry from '../strategy/state/registry';
 
-function State(nextStateOnSuccess = '_FinisherState', nextStateOnFailure = '_FinisherState') {
+export function State(nextStateOnSuccess = '_FinisherState', nextStateOnFailure = '_FinisherState') {
     /**
      * Decorator que registra a classe como um estado.
      * 
@@ -15,7 +15,7 @@ function State(nextStateOnSuccess = '_FinisherState', nextStateOnFailure = '_Fin
     };
 }
 
-function First(cls) {
+export function First(cls) {
     /**
      * Decorator que define o estado inicial (primeiro estado).
      */

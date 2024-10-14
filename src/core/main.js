@@ -1,7 +1,7 @@
 // src\core\main.js
-const JsTRobot = require('./index');
+import JsTRobot from './index.js';
 
-function entrypoint() {
+export function entrypoint() {
     if (process.argv.length < 3) {
         console.error("Usage: node main.js <project_directory>");
         process.exit(1);

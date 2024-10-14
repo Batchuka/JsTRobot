@@ -1,5 +1,4 @@
-// src\core\utility\log.js
-const { createLogger, format, transports } = require('winston');
+import { createLogger, format, transports } from 'winston';
 const { combine, timestamp, printf } = format;
 
 class LogManager {
@@ -39,4 +38,5 @@ class LogManager {
     }
 }
 
-module.exports = new LogManager();
+// Exportando a única instância
+export default new LogManager();

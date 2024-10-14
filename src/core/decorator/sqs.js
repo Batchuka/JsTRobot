@@ -1,7 +1,7 @@
 // src\core\decorator\sqs.js
-const SQSRegistry = require('../strategy/sqs/sqsRegistry');
+import SQSRegistry from '../strategy/sqs/registry';
 
-function SQS(thread = false) {
+export function SQS(thread = false) {
     /**
      * Decorator que registra a classe como um worker SQS, com a opção
      * de executar em uma nova thread ou não.

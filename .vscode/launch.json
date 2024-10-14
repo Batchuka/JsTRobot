@@ -4,8 +4,8 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Test",
-            "program": "${workspaceFolder}/test/main.js",
+            "name": "Test | SQS Project",
+            "program": "src/scaffold/sqs/project/main.js",
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen"

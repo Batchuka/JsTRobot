@@ -1,14 +1,13 @@
 // src\core\index.js
-const path = require('path');
-const fs = require('fs');
-const importModule = require('import-module');
-const ConfigManager = require('./feature/configManager');
-const MultithreadManager = require('./feature/multithreadManager');
-const { SQSStrategy, StateStrategy } = require('./strategy/sqs');
-const Singleton = require('./singleton');
-const LogManager = require('./utility/logManager');
+import path from 'path';
+import fs from 'fs';
+import ConfigManager from './feature/config.js';
+import MultiThreadManager from './feature/multiThread.js';
+import SQSStrategy from './strategy/sqs/strategy.js';
+import StateStrategy from './strategy/state/strategy.js';
+import LogManager from './utility/log.js';
 
-class JsTRobot {
+export class JsTRobot {
     constructor(directory) {
         if (!PyTRobot.instance) {
             this.directory = directory || process.argv[2];
@@ -23,7 +22,7 @@ class JsTRobot {
     _initialize() {
         this.loadConfig();
         this.loadSrc();
-        this.multithreadManager = new MultithreadManager();
+        this.multiThreadManager = new MultiThreadManager();
         this._checkAndRegisterStrategies();
     }
 
@@ -106,7 +105,7 @@ class JsTRobot {
 
     monitorThreads() {
         setInterval(() => {
-            const activeThreads = this.multithreadManager.getNumberActiveThreads();
+            const activeThreads = this.multiThreadManager.getNumberActiveThreads();
             if (activeThreads === 0) {
                 this.logger.info("No active threads, terminating the process...");
                 this.stopApplication();

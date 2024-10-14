@@ -1,4 +1,6 @@
 // src\scaffold\state\project\src\deadState.js
+
+
 class DeadState {
     onEntry() {
         console.log("It was a long wait without pizza...");

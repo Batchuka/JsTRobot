@@ -1,14 +1,14 @@
 // src/core/strategy/applicationStrategy.js
-const MultithreadManager = require('../feature/multithreadManager');
-const SubprocessManager = require('../feature/subprocessManager');
+import MultiThreadManager from '../feature/multiThread.js';
+import SubProcessManager from '../feature/subProcess.js';
 
-class ApplicationStrategy {
+export default class ApplicationStrategy {
     constructor() {
         if (this.constructor === ApplicationStrategy) {
             throw new Error("Abstract classes can't be instantiated.");
         }
-        this.multithreadManager = new MultithreadManager();
-        this.subprocessManager = new SubprocessManager();
+        this.multiThreadManager = new MultiThreadManager();
+        this.subProcessManager = new SubProcessManager();
     }
 
     initialize() {

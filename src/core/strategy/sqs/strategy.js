@@ -1,11 +1,10 @@
 // src/core/strategy/sqs/strategy.js
-const Singleton = require('../../singleton');
-const Value = require('../../utility/config');  // Simulação de uma classe que retorna as configurações
-const ApplicationStrategy = require('../state/applicationStrategy');
-const SQSManager = require('./manager');
-const SQSRegistry = require('./sqsRegistry');
+import Value from '../../utility/config.js';
+import ApplicationStrategy from '../applicationStrategy.js';
+import SQSManager from './manager.js';
+import SQSRegistry from './registry.js';
 
-class SQSStrategy extends ApplicationStrategy {
+export class SQSStrategy extends ApplicationStrategy {
     constructor() {
         super();
         if (!SQSStrategy.instance) {

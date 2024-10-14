@@ -1,6 +1,6 @@
 // src\core\feature\logging.js
-const { createLogger, format, transports } = require('winston');
-const { combine, timestamp, printf } = format;
+import { createLogger, format, transports } from 'winston';
+import { combine, timestamp, printf } from format;
 
 const TerminalColor = {
     RED: '\x1b[31m',
@@ -10,22 +10,8 @@ const TerminalColor = {
     RESET: '\x1b[0m'
 };
 
-const logger = createLogger({
-    format: combine(
-        timestamp(),
-        printf(({ level, message, timestamp }) => {
-            let color = TerminalColor.RESET;
-            if (level === 'error') color = TerminalColor.RED;
-            else if (level === 'warn') color = TerminalColor.YELLOW;
-            else if (level === 'debug') color = TerminalColor.BLUE;
 
-            return `${color}${timestamp} [${level.toUpperCase()}]: ${message}${TerminalColor.RESET}`;
-        })
-    ),
-    transports: [new transports.Console()]
-});
-
-function printBanner() {
+export function printBanner() {
     const banner = `
           __        
          |  | ___________          _        
@@ -37,6 +23,4 @@ function printBanner() {
 `;
 
     console.log(`${TerminalColor.BLUE}${banner}${TerminalColor.RESET}`);
-}
-
-module.exports = { logger, printBanner };
+};

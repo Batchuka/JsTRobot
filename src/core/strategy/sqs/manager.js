@@ -1,15 +1,13 @@
-// src\core\strategy\sqs\baseTask.js
-const AWS = require('aws-sdk');
-const LogManager = require('../../utility/log_manager');
-const SQSRegistry = require('./registry');  // Certifique-se de ajustar o caminho conforme necessário
-const SQSMessage = require('./messageBuilder');  // Certifique-se de ajustar o caminho conforme necessário
-const { Queue } = require('bull');
+// src/core/strategy/sqs/baseTask.js
+import AWS from 'aws-sdk';
+import LogManager from '../../utility/logManager.js';
+import { Queue } from 'bull';
 
-class SQSManager {
+export class SQSManager {
     constructor(taskRegistry, regionName = null, queueUrl = null, maxMessages = null, waitTime = 60) {
         this.taskRegistry = taskRegistry;
         this.logger = new LogManager().getLogger('SQS');
-        this.localQueue = new Queue();  // Substituindo a fila local por uma implementação JS
+        this.localQueue = new Queue();
         this.regionName = regionName;
         this.queueUrl = queueUrl;
         this.maxMessages = maxMessages;
@@ -151,3 +149,5 @@ class SQSManager {
         }
     }
 }
+
+export default SQSManager;

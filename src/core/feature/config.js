@@ -1,6 +1,5 @@
-// src\core\feature\config.js
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 class ConfigManager {
     constructor() {
@@ -35,4 +34,4 @@ class ConfigManager {
     }
 }
 
-module.exports = new ConfigManager();
+export default new ConfigManager();

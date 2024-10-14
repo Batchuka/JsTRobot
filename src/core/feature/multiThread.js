@@ -1,8 +1,10 @@
-// src\core\feature\multiThread.js
-const { createLogger, transports } = require('winston');
-const logger = createLogger({ transports: [new transports.Console()] });
+import { createLogger, transports } from 'winston';
 
-class MultithreadManager {
+const logger = createLogger({
+    transports: [new transports.Console()]
+});
+
+class MultiThreadManager {
     constructor() {
         if (MultithreadManager.instance) {
             return MultithreadManager.instance;
@@ -14,12 +16,15 @@ class MultithreadManager {
 
     newThread(func, join = false) {
         const funcName = func.name;
-        if (this.threads[funcName] && this.threads[funcName].isAlive) {
+        if (this.threads[funcName]) {
             logger.info(`Thread for ${funcName} is already running.`);
             return;
         }
         logger.info(`Starting new thread for ${funcName}.`);
-        const thread = new Promise(func); // Simulating a thread with Promises
+        const thread = new Promise((resolve) => {
+            func();
+            resolve();
+        }); // Simulating a thread with Promises
         this.threads[funcName] = thread;
         thread.then(() => {
             if (join) logger.info(`Thread ${funcName} joined.`);
@@ -38,9 +43,9 @@ class MultithreadManager {
     }
 
     listActiveThreads() {
-        const activeThreads = Object.keys(this.threads).filter((name) => this.threads[name]);
+        const activeThreads = Object.keys(this.threads);
         logger.info(`Active threads: ${activeThreads.join(', ')}`);
     }
 }
 
-module.exports = new MultithreadManager();
+export default new MultiThreadManager();

@@ -1,0 +1,21 @@
+{
+    "name": "state-scaffold-project",
+    "version": "1.0.0",
+    "description": "Scaffold project for SQS integration using JsTRobot",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node src/index.js",
+        "test": "echo \"No test specified\" && exit 0"
+    },
+    "keywords": [
+        "scaffold",
+        "State",
+        "JsTRobot"
+    ],
+    "author": "Batchuka",
+    "license": "ISC",
+    "dependencies": {
+        "jstrobot": "^1.0.0"
+    }
+}

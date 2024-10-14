@@ -1,7 +1,7 @@
 // src\scaffold\state\project\src\hungryState.js
-const time = require('timers/promises');
+import time from 'timers/promises';
 
-class HungryState {
+export class HungryState {
     onEntry() {
         console.log("I am hungry!");
     }
@@ -34,5 +34,3 @@ class HungryState {
         console.error("I don't know how to order a pizza... it seems like it's the end of me.");
     }
 }
-
-module.exports = HungryState;
